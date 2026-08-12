@@ -1,0 +1,39 @@
+apiVersion: v2
+name: xemu
+description: A Helm chart for xemu - the linuxserver.io original Xbox emulator KasmVNC webtop image
+type: application
+version: 1.0.0
+appVersion: "latest"
+keywords:
+  - xemu
+  - emulator
+  - xbox
+  - retrogaming
+  - kasmvnc
+  - linuxserver
+home: https://docs.linuxserver.io/images/docker-xemu/
+sources:
+  - https://github.com/linuxserver/docker-xemu
+  - https://github.com/HenriqZimer/xemu-helm-chart
+maintainers:
+  - name: HenriqZimer
+    email: henrique.zimermann@outlook.com
+    url: https://henriqzimer.com.br
+annotations:
+  artifacthub.io/license: MIT
+  artifacthub.io/links: |
+    - name: Helm Repository
+      url: https://henriqzimer.github.io/xemu-helm-chart/
+    - name: Chart Source
+      url: https://github.com/HenriqZimer/xemu-helm-chart
+    - name: Maintainer Website
+      url: https://henriqzimer.com.br
+    - name: GitHub Profile
+      url: https://github.com/HenriqZimer
+    - name: linuxserver.io xemu Image
+      url: https://docs.linuxserver.io/images/docker-xemu/
+    - name: Documentation
+      url: https://github.com/HenriqZimer/xemu-helm-chart/blob/main/chart/README.md
+  artifacthub.io/changes: |
+    - kind: added
+      description: Initial release of the xemu Helm chart
