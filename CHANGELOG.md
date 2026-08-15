@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-15
+
+### Added
+- `gpu.vendor: nvidia` mode (alongside the existing `intel-amd` VA-API mode), requesting `nvidia.com/gpu`
+  via the NVIDIA Kubernetes device plugin and setting `NVIDIA_VISIBLE_DEVICES`/`NVIDIA_DRIVER_CAPABILITIES`.
+  Documented the `nvidia-drm.modeset=1` kernel parameter (and, on headless nodes, a dummy HDMI/DP plug)
+  needed on the node for the compositor to render anything instead of a solid black desktop.
+- `seccompUnconfined` to work around a JIT recompiler crashing with `SIGBUS` under the default seccomp
+  profile on some kernel/libseccomp combinations.
+
+### Changed
+- Bumped the default `shmSize` from `1Gi` to `2Gi`, matching the fix confirmed on this chart's sibling
+  `pcsx2-helm-chart` for a JIT recompiler crashing with `SIGBUS` under Docker/Kubernetes' small default
+  `/dev/shm`.
+
 ## [1.0.0] - 2026-08-12
 
 ### Added
