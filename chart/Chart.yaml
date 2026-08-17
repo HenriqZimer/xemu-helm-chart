@@ -2,8 +2,9 @@ apiVersion: v2
 name: xemu
 description: A Helm chart for xemu - the linuxserver.io original Xbox emulator KasmVNC webtop image
 type: application
-version: 1.1.0
+version: 1.1.1
 appVersion: "latest"
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png
 keywords:
   - xemu
   - emulator
@@ -36,12 +37,16 @@ annotations:
       url: https://github.com/HenriqZimer/xemu-helm-chart/blob/main/chart/README.md
   artifacthub.io/changes: |
     - kind: added
-      description: gpu.vendor "nvidia" mode (alongside the existing "intel-amd" VA-API mode), requesting nvidia.com/gpu via the NVIDIA Kubernetes device plugin and setting NVIDIA_VISIBLE_DEVICES/NVIDIA_DRIVER_CAPABILITIES. Documented the nvidia-drm.modeset=1 kernel parameter (and, on headless nodes, a dummy HDMI/DP plug) needed on the node for the compositor to render anything instead of a solid black desktop
-    - kind: added
-      description: seccompUnconfined to work around a JIT recompiler crashing with SIGBUS under the default seccomp profile on some kernel/libseccomp combinations
-    - kind: changed
-      description: Bumped the default shmSize from 1Gi to 2Gi, matching the fix confirmed on this chart's sibling pcsx2-helm-chart for a JIT recompiler crashing with SIGBUS under Docker/Kubernetes' small default /dev/shm
+      description: icon, previously missing entirely - pointed at linuxserver.io's own logo image for this app, which is why no image was ever showing on ArtifactHub
   artifacthub.io/changesHistory: |
+    - version: 1.1.0
+      changes:
+        - kind: added
+          description: gpu.vendor "nvidia" mode (alongside the existing "intel-amd" VA-API mode), requesting nvidia.com/gpu via the NVIDIA Kubernetes device plugin and setting NVIDIA_VISIBLE_DEVICES/NVIDIA_DRIVER_CAPABILITIES. Documented the nvidia-drm.modeset=1 kernel parameter (and, on headless nodes, a dummy HDMI/DP plug) needed on the node for the compositor to render anything instead of a solid black desktop
+        - kind: added
+          description: seccompUnconfined to work around a JIT recompiler crashing with SIGBUS under the default seccomp profile on some kernel/libseccomp combinations
+        - kind: changed
+          description: Bumped the default shmSize from 1Gi to 2Gi, matching the fix confirmed on this chart's sibling pcsx2-helm-chart for a JIT recompiler crashing with SIGBUS under Docker/Kubernetes' small default /dev/shm
     - version: 1.0.0
       changes:
         - kind: added
