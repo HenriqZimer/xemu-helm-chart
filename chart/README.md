@@ -1,6 +1,10 @@
 # xemu Helm Chart
 
-[![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png" alt="xemu logo" width="140" />
+</p>
+
+[![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
 [![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)](https://docs.linuxserver.io/images/docker-xemu/)
 
 A Helm chart for [xemu](https://docs.linuxserver.io/images/docker-xemu/) - the linuxserver.io
@@ -46,7 +50,7 @@ git clone https://github.com/HenriqZimer/xemu-helm-chart.git
 cd xemu-helm-chart
 
 helm package chart/
-helm install xemu ./xemu-1.1.3.tgz
+helm install xemu ./xemu-1.1.4.tgz
 ```
 
 ## Configuration
