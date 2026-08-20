@@ -29,14 +29,14 @@ your network:
 ### Add Helm Repository
 
 ```bash
-helm repo add xemu https://henriqzimer.github.io/xemu-helm-chart/
+helm repo add xemu-helm-chart https://henriqzimer.github.io/xemu-helm-chart/
 helm repo update
 ```
 
 ### Install Chart
 
 ```bash
-helm install xemu xemu/xemu
+helm install my-xemu xemu-helm-chart/xemu --version 1.1.5
 ```
 
 For detailed installation instructions and configuration options, see the [chart README](chart/README.md).

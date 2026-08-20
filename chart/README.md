@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png" alt="xemu logo" width="140" />
 </p>
 
-[![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
+[![Version: 1.1.5](https://img.shields.io/badge/Version-1.1.5-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
 [![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)](https://docs.linuxserver.io/images/docker-xemu/)
 
 A Helm chart for [xemu](https://docs.linuxserver.io/images/docker-xemu/) - the linuxserver.io
@@ -14,11 +14,11 @@ original Xbox emulator, served as a full desktop over the browser via KasmVNC.
 
 ```bash
 # Add the Helm repository
-helm repo add xemu https://henriqzimer.github.io/xemu-helm-chart
+helm repo add xemu-helm-chart https://henriqzimer.github.io/xemu-helm-chart/
 helm repo update
 
 # Install xemu
-helm install xemu xemu/xemu
+helm install my-xemu xemu-helm-chart/xemu --version 1.1.5
 ```
 
 ## Prerequisites
@@ -37,10 +37,10 @@ helm install xemu xemu/xemu
 ### From Helm Repository
 
 ```bash
-helm repo add xemu https://henriqzimer.github.io/xemu-helm-chart
+helm repo add xemu-helm-chart https://henriqzimer.github.io/xemu-helm-chart/
 helm repo update
 
-helm install xemu xemu/xemu
+helm install my-xemu xemu-helm-chart/xemu --version 1.1.5
 ```
 
 ### From Source
@@ -50,7 +50,7 @@ git clone https://github.com/HenriqZimer/xemu-helm-chart.git
 cd xemu-helm-chart
 
 helm package chart/
-helm install xemu ./xemu-1.1.4.tgz
+helm install my-xemu ./xemu-1.1.5.tgz
 ```
 
 ## Configuration
