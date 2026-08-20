@@ -1,0 +1,94 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: README now shows the emulator's logo at the top (linuxserver.io's own image, same one used for the chart icon)
+  artifacthub.io/changesHistory: |
+    - version: 1.1.3
+      changes:
+        - kind: added
+          description: Chart releases are now signed (helm package --sign) - see artifacthub.io/signKey for the public key location and fingerprint, powers the "Signed" badge on ArtifactHub
+    - version: 1.1.2
+      changes:
+        - kind: added
+          description: values.schema.json - validates values.yaml against a JSON Schema, and is what powers the "Values schema" feature/badge on ArtifactHub (previously absent)
+    - version: 1.1.1
+      changes:
+        - kind: added
+          description: icon, previously missing entirely - pointed at linuxserver.io's own logo image for this app, which is why no image was ever showing on ArtifactHub
+    - version: 1.1.0
+      changes:
+        - kind: added
+          description: gpu.vendor "nvidia" mode (alongside the existing "intel-amd" VA-API mode), requesting nvidia.com/gpu via the NVIDIA Kubernetes device plugin and setting NVIDIA_VISIBLE_DEVICES/NVIDIA_DRIVER_CAPABILITIES. Documented the nvidia-drm.modeset=1 kernel parameter (and, on headless nodes, a dummy HDMI/DP plug) needed on the node for the compositor to render anything instead of a solid black desktop
+        - kind: added
+          description: seccompUnconfined to work around a JIT recompiler crashing with SIGBUS under the default seccomp profile on some kernel/libseccomp combinations
+        - kind: changed
+          description: Bumped the default shmSize from 1Gi to 2Gi, matching the fix confirmed on this chart's sibling pcsx2-helm-chart for a JIT recompiler crashing with SIGBUS under Docker/Kubernetes' small default /dev/shm
+    - version: 1.0.0
+      changes:
+        - kind: added
+          description: Initial release of the xemu Helm chart
+  artifacthub.io/license: MIT
+  artifacthub.io/links: |
+    - name: Helm Repository
+      url: https://henriqzimer.github.io/xemu-helm-chart/
+    - name: Chart Source
+      url: https://github.com/HenriqZimer/xemu-helm-chart
+    - name: Maintainer Website
+      url: https://henriqzimer.com.br
+    - name: GitHub Profile
+      url: https://github.com/HenriqZimer
+    - name: linuxserver.io xemu Image
+      url: https://docs.linuxserver.io/images/docker-xemu/
+    - name: Documentation
+      url: https://github.com/HenriqZimer/xemu-helm-chart/blob/main/chart/README.md
+  artifacthub.io/signKey: |
+    fingerprint: C2E2E16693F2715BA0B23913BF94E5067859562F
+    url: https://henriqzimer.github.io/xemu-helm-chart/HenriqZimer-helm-charts-public.asc
+apiVersion: v2
+appVersion: latest
+description: A Helm chart for xemu - the linuxserver.io original Xbox emulator KasmVNC
+  webtop image
+home: https://docs.linuxserver.io/images/docker-xemu/
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png
+keywords:
+- - xemu
+- - emulator
+- - xbox
+- - retrogaming
+- - kasmvnc
+- - linuxserver
+maintainers:
+- - email: henrique.zimermann@outlook.com
+  name: HenriqZimer
+  url: https://henriqzimer.com.br
+name: xemu
+sources:
+- - https://github.com/linuxserver/docker-xemu
+- - https://github.com/HenriqZimer/xemu-helm-chart
+type: application
+version: 1.1.4
+
+...
+files:
+  xemu-1.1.4.tgz: sha256:352805ca4d813ae382262ea02f3b4f1592cd76d3aa360f3f24fb708a7cc741a7
+
+-----BEGIN PGP SIGNATURE-----
+
+wsG5BAEBCgBtBYJqhn8OCRC/lOUGeFlWL0UUAAAAAAAcACBzYWx0QG5vdGF0aW9u
+cy5vcGVucGdwanMub3JnV4yvLgpZE6PMQnJ+PolINk49gkeoE+hU7XMciS5+fx0W
+IQTC4uFmk/JxW6CyORO/lOUGeFlWLwAAGzsP/0so/5+Cq61UsOtStaTboJy0llXQ
+4dPOlPR/pVt2ujSFC9saLrp6n0dACtJbmgPg37E8qewskx1PdGVQwyxqgsEwwlxR
+2oaLEpBGVguwQrjL1iG4rRTffHKaHdorSzZJjKd/GhJrFeuNBsNP45UmGGQ27LLP
+vfaQiFmTOiF+m5LaGOsKgUYHtUzBhsE8EZ2XjFJrY1I+OIRcHvlp2QY51s3O+hG6
+UWLwT1T6lcIJ2caqh1zDYNmSGQMbSPfHV/HznzORe6/y7/KwJBhPAkBLlxOxsyrv
+73uWLkC6aUlc08C3r+U2Z8//PMBeCW+ow9iPXXIGZ07u7mc9TYliYYXuCAxia0wM
+Sr1mtJsE4dKEbBa+WlXopUEfApCoBok01ICHrsrhnR4zEAcYlT3bImwvGMHyvlyi
+JVRCN7M8xDZV9QPFp4fxgrU+bwuUdd3E2MSkl4ChecuEBpfBj0C/w0zfHwfSo+fO
+4nwVgE1SVp8/w2oZBc4l+UubtIF6A9nuGlS9mj45xq3v9BMpF0GMC6WeYBcLtRCC
+yXqpBJ9PxHhI5wFiucMPD1AgMD+SkY0ARr+8Qdksxu9OV2pNa8sMxJLBqGvTJ3bG
+JLaTchm3Y13lLBYcs/KOJ9qJndzcrFimQR/K3u1cj/ljhMJh007P9lTOrFU0mHwC
+nGw3uHtDUpl/morV
+-----END PGP SIGNATURE-----
