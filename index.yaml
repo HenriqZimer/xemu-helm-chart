@@ -3,6 +3,91 @@ entries:
   xemu:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: "sunshine.* now also mounts /dev/uhid - without it, Sunshine falls back to emulating gamepads as a generic Xbox One controller when the client reports a PlayStation-type pad (DualShock/DualSense), and that fallback does not correctly forward face buttons/triggers (confirmed: analog stick axes work, buttons don't) - the real virtual DualShock/DualSense device needs kernel uhid access to be created"
+      artifacthub.io/changesHistory: |
+        - version: 1.2.0
+          changes:
+            - kind: added
+              description: sunshine.* (POC) - Sunshine/Moonlight low-latency game streaming as an alternative to the default KasmVNC streaming, requiring a Docker Mod (ghcr.io/henriqzimer/xemu-sunshine-mod) that installs Sunshine and swaps the base image's Xvfb for a real Xorg + dummy driver (Xvfb isn't linked against libudev so it can't hotplug Sunshine's uinput-created input devices), hostNetwork/privileged, and PIXELFLUX_WAYLAND=false in env
+        - version: 1.1.5
+          changes:
+            - kind: fixed
+              description: README install commands now use a unique repo alias (<name>-helm-chart) instead of the bare chart name, and pin --version explicitly, matching what actually works
+        - version: 1.1.4
+          changes:
+            - kind: changed
+              description: README now shows the emulator's logo at the top (linuxserver.io's own image, same one used for the chart icon)
+        - version: 1.1.3
+          changes:
+            - kind: added
+              description: Chart releases are now signed (helm package --sign) - see artifacthub.io/signKey for the public key location and fingerprint, powers the "Signed" badge on ArtifactHub
+        - version: 1.1.2
+          changes:
+            - kind: added
+              description: values.schema.json - validates values.yaml against a JSON Schema, and is what powers the "Values schema" feature/badge on ArtifactHub (previously absent)
+        - version: 1.1.1
+          changes:
+            - kind: added
+              description: icon, previously missing entirely - pointed at linuxserver.io's own logo image for this app, which is why no image was ever showing on ArtifactHub
+        - version: 1.1.0
+          changes:
+            - kind: added
+              description: gpu.vendor "nvidia" mode (alongside the existing "intel-amd" VA-API mode), requesting nvidia.com/gpu via the NVIDIA Kubernetes device plugin and setting NVIDIA_VISIBLE_DEVICES/NVIDIA_DRIVER_CAPABILITIES. Documented the nvidia-drm.modeset=1 kernel parameter (and, on headless nodes, a dummy HDMI/DP plug) needed on the node for the compositor to render anything instead of a solid black desktop
+            - kind: added
+              description: seccompUnconfined to work around a JIT recompiler crashing with SIGBUS under the default seccomp profile on some kernel/libseccomp combinations
+            - kind: changed
+              description: Bumped the default shmSize from 1Gi to 2Gi, matching the fix confirmed on this chart's sibling pcsx2-helm-chart for a JIT recompiler crashing with SIGBUS under Docker/Kubernetes' small default /dev/shm
+        - version: 1.0.0
+          changes:
+            - kind: added
+              description: Initial release of the xemu Helm chart
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Helm Repository
+          url: https://henriqzimer.github.io/xemu-helm-chart/
+        - name: Chart Source
+          url: https://github.com/HenriqZimer/xemu-helm-chart
+        - name: Maintainer Website
+          url: https://henriqzimer.com.br
+        - name: GitHub Profile
+          url: https://github.com/HenriqZimer
+        - name: linuxserver.io xemu Image
+          url: https://docs.linuxserver.io/images/docker-xemu/
+        - name: Documentation
+          url: https://github.com/HenriqZimer/xemu-helm-chart/blob/main/chart/README.md
+      artifacthub.io/signKey: |
+        fingerprint: C2E2E16693F2715BA0B23913BF94E5067859562F
+        url: https://henriqzimer.github.io/xemu-helm-chart/HenriqZimer-helm-charts-public.asc
+    apiVersion: v2
+    appVersion: latest
+    created: "2026-08-21T15:08:42.171422828Z"
+    description: A Helm chart for xemu - the linuxserver.io original Xbox emulator
+      KasmVNC webtop image
+    digest: 6ef66a21a6b6bb3f6528ff53f5e2372f0a13b1d694d3972be3c8596217d9c2e9
+    home: https://docs.linuxserver.io/images/docker-xemu/
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png
+    keywords:
+    - xemu
+    - emulator
+    - xbox
+    - retrogaming
+    - kasmvnc
+    - linuxserver
+    maintainers:
+    - email: henrique.zimermann@outlook.com
+      name: HenriqZimer
+      url: https://henriqzimer.com.br
+    name: xemu
+    sources:
+    - https://github.com/linuxserver/docker-xemu
+    - https://github.com/HenriqZimer/xemu-helm-chart
+    type: application
+    urls:
+    - https://github.com/HenriqZimer/xemu-helm-chart/releases/download/v1.2.1/xemu-1.2.1.tgz
+    version: 1.2.1
+  - annotations:
+      artifacthub.io/changes: |
         - kind: added
           description: sunshine.* (POC) - Sunshine/Moonlight low-latency game streaming as an alternative to the default KasmVNC streaming, requiring a Docker Mod (ghcr.io/henriqzimer/xemu-sunshine-mod) that installs Sunshine and swaps the base image's Xvfb for a real Xorg + dummy driver (Xvfb isn't linked against libudev so it can't hotplug Sunshine's uinput-created input devices), hostNetwork/privileged, and PIXELFLUX_WAYLAND=false in env
       artifacthub.io/changesHistory: |
@@ -474,4 +559,4 @@ entries:
     urls:
     - https://github.com/HenriqZimer/xemu-helm-chart/releases/download/v1.1.0/xemu-1.1.0.tgz
     version: 1.1.0
-generated: "2026-08-21T02:33:49.700310725Z"
+generated: "2026-08-21T15:08:42.171476558Z"
