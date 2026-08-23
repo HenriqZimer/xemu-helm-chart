@@ -269,7 +269,7 @@ seccompUnconfined: false
 
 resources:
   requests:
-    cpu: 500m
+    cpu: "1"
     memory: 1Gi
   limits:
     cpu: "2"
