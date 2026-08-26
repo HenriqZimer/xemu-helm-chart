@@ -2,7 +2,7 @@ apiVersion: v2
 name: xemu
 description: A Helm chart for xemu - the linuxserver.io original Xbox emulator KasmVNC webtop image
 type: application
-version: 1.4.3
+version: 1.4.4
 appVersion: "latest"
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png
 keywords:
