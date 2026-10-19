@@ -4,8 +4,8 @@
   <img src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png" alt="xemu logo" width="140" />
 </p>
 
-[![Version: 1.1.5](https://img.shields.io/badge/Version-1.1.5-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
-[![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)](https://docs.linuxserver.io/images/docker-xemu/)
+[![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square)](https://github.com/HenriqZimer/xemu-helm-chart)
+[![AppVersion: 0.8.134](https://img.shields.io/badge/AppVersion-0.8.134-informational?style=flat-square)](https://docs.linuxserver.io/images/docker-xemu/)
 
 A Helm chart for [xemu](https://docs.linuxserver.io/images/docker-xemu/) - the linuxserver.io
 original Xbox emulator, served as a full desktop over the browser via KasmVNC.
@@ -247,7 +247,7 @@ for the full `streaming` schema.
 |---|---|---|
 | `replicaCount` | `1` | Number of replicas. Must stay at 1 — no session clustering. |
 | `image.repository` | `lscr.io/linuxserver/xemu` | Container image. |
-| `image.tag` | `latest` | Image tag. |
+| `image.tag` | `v0.8.134-ls90` | Image tag. |
 | `env.PUID` / `env.PGID` | `1000` / `1000` | User/group the app runs as; match your storage's ownership. |
 | `env.TZ` | `Etc/UTC` | Timezone. |
 | `env.KASMVNC_ENABLE_BASIC_AUTH` | `false` | Require basic auth on the web UI. |
